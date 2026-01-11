@@ -314,13 +314,13 @@ function SkillCard({
       className="group relative"
     >
       <div className="absolute -inset-0.5 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-sm" />
-      <div className="relative bg-zinc-900/80 border border-zinc-800 rounded-2xl p-5 hover:border-zinc-700 transition-colors">
+      <div className="relative bg-white/80 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-5 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors shadow-sm dark:shadow-none">
         <div
           className={`w-12 h-12 rounded-xl bg-gradient-to-br ${skill.color} flex items-center justify-center mb-4`}
         >
           <Icon className="w-6 h-6 text-white" />
         </div>
-        <h3 className="text-lg font-semibold text-white mb-3">{skill.title}</h3>
+        <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-3">{skill.title}</h3>
         <div className="flex flex-wrap gap-2">
           {skill.items.map((item) => (
             <span
@@ -358,10 +358,10 @@ function ExperienceItem({
       {/* Timeline dot */}
       <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-cyan-500 shadow-lg shadow-cyan-500/50" />
 
-      <div className="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 hover:border-cyan-500/30 transition-colors">
+      <div className="bg-white/70 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-cyan-500/50 dark:hover:border-cyan-500/30 transition-colors shadow-sm dark:shadow-none">
         <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
           <div>
-            <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+            <h3 className="text-xl font-bold text-zinc-900 dark:text-white">{exp.role}</h3>
             <p className="text-cyan-400 font-medium">{exp.company}</p>
           </div>
           <div className="flex flex-col items-end gap-1">
@@ -409,11 +409,12 @@ function AnimatedBackground() {
     return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
       {/* Base gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-900 via-black to-black" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-900 via-black to-black dark:from-zinc-900 dark:via-black dark:to-black" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-50 via-white to-slate-100 dark:opacity-0 transition-opacity duration-300" />
 
       {/* Grid pattern */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-20 dark:opacity-20"
         style={{
           backgroundImage: `linear-gradient(rgba(6,182,212,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,0.1) 1px, transparent 1px)`,
           backgroundSize: "50px 50px",
@@ -422,7 +423,7 @@ function AnimatedBackground() {
 
       {/* Animated gradient orbs */}
       <motion.div
-        className="absolute top-1/4 -left-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-[128px]"
+        className="absolute top-1/4 -left-32 w-96 h-96 bg-cyan-500/20 dark:bg-cyan-500/20 rounded-full blur-[128px]"
         animate={{
           x: [0, 100, 0],
           y: [0, 50, 0],
@@ -430,7 +431,7 @@ function AnimatedBackground() {
         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-500/20 rounded-full blur-[128px]"
+        className="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-500/20 dark:bg-purple-500/20 rounded-full blur-[128px]"
         animate={{
           x: [0, -100, 0],
           y: [0, -50, 0],
@@ -480,7 +481,7 @@ function FloatingNav({
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-black/80 backdrop-blur-xl border-b border-zinc-800/50"
+          ? "bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-zinc-200/50 dark:border-zinc-800/50"
           : "bg-transparent"
       }`}
     >
@@ -498,7 +499,7 @@ function FloatingNav({
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="px-4 py-2 text-sm text-zinc-400 hover:text-white transition-colors rounded-lg hover:bg-zinc-800/50"
+              className="px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800/50"
             >
               {s.label}
             </a>
@@ -507,7 +508,7 @@ function FloatingNav({
 
         <button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="p-2.5 rounded-xl bg-zinc-800/50 border border-zinc-700/50 text-zinc-400 hover:text-white hover:border-cyan-500/50 transition-all"
+          className="p-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700/50 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-cyan-500/50 transition-all"
         >
           {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
         </button>
@@ -521,16 +522,32 @@ function FloatingNav({
 ───────────────────────────────────────────────────────────────────────────── */
 
 export default function App() {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
+    const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("theme");
+        if (saved === "light" || saved === "dark") return saved;
+    }
+    return "dark";
+    });
   const { scrollYProgress } = useScroll();
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
     useEffect(() => {
-    document.documentElement.classList.add("dark");
-    }, []);
+        const root = document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+        localStorage.setItem("theme", theme);
+    }, [theme]);
 
     return (
-    <div className="relative min-h-screen bg-black text-white overflow-x-hidden">
+    <div className={`relative min-h-screen overflow-x-hidden transition-colors duration-300 ${
+      theme === "dark" 
+        ? "bg-black text-white" 
+        : "bg-gradient-to-b from-slate-50 via-white to-slate-100 text-zinc-900"
+    }`}>
       <AnimatedBackground />
 
       {/* Progress bar */}
@@ -666,12 +683,12 @@ export default function App() {
             className="relative"
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-xl" />
-            <div className="relative bg-zinc-900/80 border border-zinc-800 rounded-3xl p-8 sm:p-12">
-              <p className="text-lg sm:text-xl text-zinc-300 leading-relaxed">
+            <div className="relative bg-white/80 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-8 sm:p-12 shadow-lg dark:shadow-none">
+              <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-300 leading-relaxed">
                 {ABOUT_TEXT}
               </p>
 
-              <div className="mt-8 pt-8 border-t border-zinc-800 grid sm:grid-cols-4 gap-6">
+              <div className="mt-8 pt-8 border-t border-zinc-200 dark:border-zinc-800 grid sm:grid-cols-4 gap-6">
                 <div className="text-center">
                   <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                     3+
@@ -787,16 +804,16 @@ export default function App() {
                 <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl">
                   <GraduationCap className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Education</h3>
+                <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">Education</h3>
               </div>
 
               <div className="space-y-4">
                 {EDUCATION.map((edu) => (
                   <div
                     key={edu.school}
-                    className="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-5 hover:border-cyan-500/30 transition-colors"
+                    className="bg-white/70 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-5 hover:border-cyan-500/30 transition-colors"
                   >
-                    <h4 className="text-lg font-semibold text-white">{edu.school}</h4>
+                    <h4 className="text-lg font-semibold text-zinc-900 dark:text-white">{edu.school}</h4>
                     <p className="text-cyan-400">{edu.degree}</p>
                     <p className="text-zinc-500 text-sm">{edu.faculty}</p>
                     <p className="text-zinc-600 text-sm mt-2">{edu.period}</p>
@@ -816,14 +833,14 @@ export default function App() {
                 <div className="p-3 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl">
                   <Languages className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Languages</h3>
+                <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">Languages</h3>
               </div>
 
-              <div className="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 space-y-6">
+              <div className="bg-white/70 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-6 space-y-6">
                 {LANGUAGES.map((lang) => (
                   <div key={lang.name}>
                     <div className="flex justify-between mb-2">
-                      <span className="text-white font-medium">{lang.name}</span>
+                      <span className="text-zinc-900 dark:text-white font-medium">{lang.name}</span>
                       <span className="text-cyan-400">{lang.level}</span>
                     </div>
                     <div className="h-2 bg-zinc-800 rounded-full overflow-hidden">
@@ -840,9 +857,9 @@ export default function App() {
               </div>
 
             </motion.div>
-          </div>
-        </div>
-      </section>
+                        </div>
+                    </div>
+                </section>
 
       {/* ════════════════════════ CONTACT ════════════════════════ */}
       <section id="contact" className="py-32 px-4">
@@ -873,12 +890,12 @@ export default function App() {
           >
             <a
               href={`mailto:${PERSONAL_INFO.email}`}
-              className="group bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 hover:border-cyan-500/50 transition-all text-center"
+              className="group bg-white/70 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-6 hover:border-cyan-500/50 transition-all text-center"
             >
               <div className="w-14 h-14 mx-auto mb-4 bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Mail className="w-7 h-7 text-cyan-400" />
               </div>
-              <h3 className="text-white font-semibold mb-1">Email</h3>
+              <h3 className="text-zinc-900 dark:text-white font-semibold mb-1">Email</h3>
               <p className="text-zinc-500 text-sm break-all">{PERSONAL_INFO.email}</p>
             </a>
 
@@ -887,12 +904,12 @@ export default function App() {
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 hover:border-blue-500/50 transition-all text-center"
+              className="group bg-white/70 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-6 hover:border-blue-500/50 transition-all text-center"
             >
               <div className="w-14 h-14 mx-auto mb-4 bg-gradient-to-br from-blue-500/20 to-blue-500/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Linkedin className="w-7 h-7 text-blue-400" />
               </div>
-              <h3 className="text-white font-semibold mb-1">LinkedIn</h3>
+              <h3 className="text-zinc-900 dark:text-white font-semibold mb-1">LinkedIn</h3>
               <p className="text-zinc-500 text-sm">Connect with me</p>
             </a>
 
@@ -900,12 +917,12 @@ export default function App() {
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 hover:border-pink-500/50 transition-all text-center"
+              className="group bg-white/70 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-6 hover:border-pink-500/50 transition-all text-center"
             >
               <div className="w-14 h-14 mx-auto mb-4 bg-gradient-to-br from-pink-500/20 to-pink-500/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Github className="w-7 h-7 text-pink-400" />
                             </div>
-              <h3 className="text-white font-semibold mb-1">GitHub</h3>
+              <h3 className="text-zinc-900 dark:text-white font-semibold mb-1">GitHub</h3>
               <p className="text-zinc-500 text-sm">View my code</p>
             </a>
           </motion.div>
@@ -926,7 +943,7 @@ export default function App() {
                 </section>
 
       {/* ════════════════════════ FOOTER ════════════════════════ */}
-      <footer className="border-t border-zinc-800/50 py-8 px-4">
+      <footer className="border-t border-zinc-200 dark:border-zinc-800/50 py-8 px-4">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-zinc-500 text-sm">
             © {new Date().getFullYear()} {PERSONAL_INFO.name}. Built with React & Framer Motion.
