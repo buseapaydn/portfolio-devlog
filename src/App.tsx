@@ -325,7 +325,7 @@ function SkillCard({
           {skill.items.map((item) => (
             <span
               key={item}
-              className="px-2.5 py-1 bg-zinc-800 text-zinc-400 text-xs rounded-lg border border-zinc-700/50"
+              className="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700/50"
             >
               {item}
             </span>
@@ -372,7 +372,7 @@ function ExperienceItem({
           </div>
         </div>
 
-        <div className="flex items-center gap-4 mb-4 text-sm text-zinc-400">
+        <div className="flex items-center gap-4 mb-4 text-sm text-zinc-500 dark:text-zinc-400">
           <span className="flex items-center gap-1">
             <MapPin className="w-4 h-4" /> {exp.location}
           </span>
@@ -392,7 +392,7 @@ function ExperienceItem({
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.3, delay: 0.4 + idx * 0.1 }}
-              className="flex items-start gap-2 text-zinc-400 text-sm"
+              className="flex items-start gap-2 text-zinc-600 dark:text-zinc-400 text-sm"
             >
               <span className="text-cyan-500 mt-1">▹</span>
               {item}
@@ -577,14 +577,14 @@ export default function App() {
             </motion.div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="text-zinc-300">Hi, I'm</span>
+              <span className="text-zinc-600 dark:text-zinc-300">Hi, I'm</span>
               <br />
               <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 {PERSONAL_INFO.name}
               </span>
             </h1>
 
-            <p className="text-xl sm:text-2xl text-zinc-400 mb-4">
+            <p className="text-xl sm:text-2xl text-zinc-500 dark:text-zinc-400 mb-4">
               {PERSONAL_INFO.title}
             </p>
 
@@ -605,7 +605,7 @@ export default function App() {
                 href="#experience"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 border border-zinc-700 rounded-xl font-medium text-zinc-300 hover:bg-zinc-800/50 hover:border-zinc-600 transition-colors"
+                className="px-6 py-3 border border-zinc-300 dark:border-zinc-700 rounded-xl font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
               >
                 View My Work
               </motion.a>
@@ -614,7 +614,7 @@ export default function App() {
             <div className="flex items-center gap-4 mt-10">
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}
-                className="p-3 bg-zinc-800/50 border border-zinc-700/50 rounded-xl text-zinc-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
+                className="p-3 bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700/50 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-cyan-500 dark:hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
               >
                 <Mail className="w-5 h-5" />
               </a>
@@ -622,7 +622,7 @@ export default function App() {
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-zinc-800/50 border border-zinc-700/50 rounded-xl text-zinc-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
+                className="p-3 bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700/50 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-cyan-500 dark:hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
               >
                 <Linkedin className="w-5 h-5" />
                                 </a>
@@ -630,7 +630,7 @@ export default function App() {
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-zinc-800/50 border border-zinc-700/50 rounded-xl text-zinc-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
+                className="p-3 bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700/50 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-cyan-500 dark:hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
               >
                 <Github className="w-5 h-5" />
                                 </a>
@@ -843,7 +843,7 @@ export default function App() {
                       <span className="text-zinc-900 dark:text-white font-medium">{lang.name}</span>
                       <span className="text-cyan-400">{lang.level}</span>
                     </div>
-                    <div className="h-2 bg-zinc-800 rounded-full overflow-hidden">
+                    <div className="h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${lang.percentage}%` }}
@@ -934,7 +934,7 @@ export default function App() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-16 text-center"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-800/50 border border-zinc-700/50 rounded-full text-zinc-400 text-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700/50 rounded-full text-zinc-600 dark:text-zinc-400 text-sm">
               <MapPin className="w-4 h-4" />
               {PERSONAL_INFO.location}
                         </div>
