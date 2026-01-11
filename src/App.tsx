@@ -16,7 +16,6 @@ import {
   Gamepad2,
   Users,
   GraduationCap,
-  Briefcase,
   Languages,
 } from "lucide-react";
 
@@ -183,11 +182,6 @@ const LANGUAGES = [
   { name: "Spanish", level: "A1", percentage: 25 },
 ];
 
-const REFERENCE = {
-  name: "Osman Ertürk",
-  title: "R&D Software Dev. Manager",
-  phone: "+90 543 226 26 34",
-};
 
 /* ─────────────────────────────────────────────────────────────────────────────
    COMPONENTS
@@ -840,27 +834,15 @@ export default function App() {
                         transition={{ duration: 1, delay: 0.3 }}
                         className="h-full bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full"
                       />
-                    </div>
-                  </div>
+                                </div>
+                            </div>
                 ))}
               </div>
 
-              {/* Reference */}
-              <div className="mt-6 bg-zinc-900/60 border border-zinc-800 rounded-2xl p-5">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-emerald-500/20 rounded-lg">
-                    <Briefcase className="w-5 h-5 text-emerald-400" />
-                            </div>
-                  <span className="text-zinc-400 text-sm">Reference</span>
-                                </div>
-                <p className="text-white font-semibold">{REFERENCE.name}</p>
-                <p className="text-cyan-400 text-sm">{REFERENCE.title}</p>
-                <p className="text-zinc-500 text-sm mt-1">{REFERENCE.phone}</p>
-                            </div>
             </motion.div>
-                        </div>
-                    </div>
-                </section>
+          </div>
+        </div>
+      </section>
 
       {/* ════════════════════════ CONTACT ════════════════════════ */}
       <section id="contact" className="py-32 px-4">
