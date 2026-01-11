@@ -7,9 +7,7 @@ import {
   Mail,
   Linkedin,
   Github,
-  Phone,
   MapPin,
-  ExternalLink,
   ChevronDown,
   Smartphone,
   Code2,
@@ -31,7 +29,6 @@ const PERSONAL_INFO = {
   title: "Mobile Developer",
   subtitle: "React Native • Kotlin • Spring Boot",
   email: "buseapaydin8@gmail.com",
-  phone: "0(539)4409225",
   linkedin: "https://www.linkedin.com/in/buse-apaydın-5281ab176",
   github: "https://github.com/buseapaydyn",
   location: "Istanbul, Turkey",
@@ -314,7 +311,7 @@ function SkillCard({
   const isInView = useInView(ref, { once: true });
   const Icon = skill.icon;
 
-  return (
+    return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
@@ -415,7 +412,7 @@ function ExperienceItem({
 
 // Animated Background
 function AnimatedBackground() {
-  return (
+    return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
       {/* Base gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-900 via-black to-black" />
@@ -453,9 +450,9 @@ function AnimatedBackground() {
           opacity: [0.1, 0.15, 0.1],
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-    </div>
-  );
+            />
+        </div>
+    );
 }
 
 // Floating Nav
@@ -534,11 +531,11 @@ export default function App() {
   const { scrollYProgress } = useScroll();
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
-  useEffect(() => {
+    useEffect(() => {
     document.documentElement.classList.add("dark");
-  }, []);
+    }, []);
 
-  return (
+    return (
     <div className="relative min-h-screen bg-black text-white overflow-x-hidden">
       <AnimatedBackground />
 
@@ -565,7 +562,7 @@ export default function App() {
               className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-cyan-400 text-sm mb-6"
             >
               <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
-              Available for new projects
+              Turning ideas into apps
             </motion.div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
@@ -601,7 +598,7 @@ export default function App() {
               >
                 View My Work
               </motion.a>
-            </div>
+                    </div>
 
             <div className="flex items-center gap-4 mt-10">
               <a
@@ -617,16 +614,16 @@ export default function App() {
                 className="p-3 bg-zinc-800/50 border border-zinc-700/50 rounded-xl text-zinc-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
               >
                 <Linkedin className="w-5 h-5" />
-              </a>
-              <a
+                                </a>
+                                <a
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-zinc-800/50 border border-zinc-700/50 rounded-xl text-zinc-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all"
               >
                 <Github className="w-5 h-5" />
-              </a>
-            </div>
+                                </a>
+                            </div>
           </motion.div>
 
           <motion.div
@@ -637,7 +634,7 @@ export default function App() {
           >
             <PhoneMockup />
           </motion.div>
-        </div>
+                        </div>
 
         {/* Scroll indicator */}
         <motion.div
@@ -704,12 +701,12 @@ export default function App() {
                     3
                   </div>
                   <div className="text-zinc-500 mt-1">VR Projects</div>
-                </div>
-              </div>
+                            </div>
+                        </div>
             </div>
           </motion.div>
-        </div>
-      </section>
+                    </div>
+                </section>
 
       {/* ════════════════════════ SKILLS ════════════════════════ */}
       <section id="skills" className="py-32 px-4">
@@ -734,10 +731,10 @@ export default function App() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {Object.values(SKILLS).map((skill, index) => (
               <SkillCard key={skill.title} skill={skill} index={index} />
-            ))}
-          </div>
-        </div>
-      </section>
+                            ))}
+                        </div>
+                    </div>
+                </section>
 
       {/* ════════════════════════ EXPERIENCE ════════════════════════ */}
       <section id="experience" className="py-32 px-4">
@@ -762,10 +759,10 @@ export default function App() {
           <div className="space-y-0">
             {EXPERIENCES.map((exp, index) => (
               <ExperienceItem key={exp.company} exp={exp} index={index} />
-            ))}
-          </div>
-        </div>
-      </section>
+                            ))}
+                        </div>
+                    </div>
+                </section>
 
       {/* ════════════════════════ EDUCATION ════════════════════════ */}
       <section id="education" className="py-32 px-4">
@@ -809,9 +806,9 @@ export default function App() {
                     <p className="text-cyan-400">{edu.degree}</p>
                     <p className="text-zinc-500 text-sm">{edu.faculty}</p>
                     <p className="text-zinc-600 text-sm mt-2">{edu.period}</p>
-                  </div>
-                ))}
-              </div>
+                                </div>
+                            ))}
+                        </div>
             </motion.div>
 
             {/* Languages */}
@@ -853,17 +850,17 @@ export default function App() {
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2 bg-emerald-500/20 rounded-lg">
                     <Briefcase className="w-5 h-5 text-emerald-400" />
-                  </div>
+                            </div>
                   <span className="text-zinc-400 text-sm">Reference</span>
-                </div>
+                                </div>
                 <p className="text-white font-semibold">{REFERENCE.name}</p>
                 <p className="text-cyan-400 text-sm">{REFERENCE.title}</p>
                 <p className="text-zinc-500 text-sm mt-1">{REFERENCE.phone}</p>
-              </div>
+                            </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
+                        </div>
+                    </div>
+                </section>
 
       {/* ════════════════════════ CONTACT ════════════════════════ */}
       <section id="contact" className="py-32 px-4">
@@ -890,7 +887,7 @@ export default function App() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
+            className="grid sm:grid-cols-3 gap-4"
           >
             <a
               href={`mailto:${PERSONAL_INFO.email}`}
@@ -903,16 +900,6 @@ export default function App() {
               <p className="text-zinc-500 text-sm break-all">{PERSONAL_INFO.email}</p>
             </a>
 
-            <a
-              href={`tel:${PERSONAL_INFO.phone}`}
-              className="group bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 hover:border-purple-500/50 transition-all text-center"
-            >
-              <div className="w-14 h-14 mx-auto mb-4 bg-gradient-to-br from-purple-500/20 to-purple-500/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Phone className="w-7 h-7 text-purple-400" />
-              </div>
-              <h3 className="text-white font-semibold mb-1">Phone</h3>
-              <p className="text-zinc-500 text-sm">{PERSONAL_INFO.phone}</p>
-            </a>
 
             <a
               href={PERSONAL_INFO.linkedin}
@@ -935,7 +922,7 @@ export default function App() {
             >
               <div className="w-14 h-14 mx-auto mb-4 bg-gradient-to-br from-pink-500/20 to-pink-500/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Github className="w-7 h-7 text-pink-400" />
-              </div>
+                            </div>
               <h3 className="text-white font-semibold mb-1">GitHub</h3>
               <p className="text-zinc-500 text-sm">View my code</p>
             </a>
@@ -951,10 +938,10 @@ export default function App() {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-800/50 border border-zinc-700/50 rounded-full text-zinc-400 text-sm">
               <MapPin className="w-4 h-4" />
               {PERSONAL_INFO.location}
-            </div>
+                        </div>
           </motion.div>
-        </div>
-      </section>
+                    </div>
+                </section>
 
       {/* ════════════════════════ FOOTER ════════════════════════ */}
       <footer className="border-t border-zinc-800/50 py-8 px-4">
@@ -972,9 +959,9 @@ export default function App() {
             <a href={PERSONAL_INFO.github} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-cyan-400 transition-colors">
               <Github className="w-5 h-5" />
             </a>
-          </div>
+                        </div>
+                    </div>
+                </footer>
         </div>
-      </footer>
-    </div>
-  );
+    );
 }
